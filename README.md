@@ -8,6 +8,8 @@ migrated to github from a private GitLab server. The instructions
 did not stipulate how it should be done, or what languages to use,
 so we did it in C, entirely within a terminal window. For fun.
 
+![A local multiplayer demo of the game.](/demos/demoV1_0.gif?raw=true)
+
 ## Building the System
 
 *If you just want to play the game, you can simply download the

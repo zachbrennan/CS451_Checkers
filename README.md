@@ -1,47 +1,86 @@
-General ideas:
+# CS451_Checkers
 
-  - Do this in C because it will be an excellent learning
-    experience and we will have real, practical code that we can
-    use in the future and/or post on our public Git repositories
-    with all the proper processes and documentation.
-    
-  - For the networking aspect we can do a client-server model or
-    perhaps a P2P model. We should aim to support threading so
-    that additional clients can join in the form of "Spectators"
-    who can watch an existing in-progress game.
-    
-  - For the graphical user interface, we can use the 'ncurses'
-    library to provide a decent-quality command-line interface
-    with relatively minimal effort. Some examples are found at:
-    https://www.google.com/search?q=ncurses+gui&source=lnms&tbm=isch
+An assignment for Drexel's CS451 class, in order to prepare students
+for Senior Design projects. We were given free reign to design and
+document an implementation of checkers that could be played over a
+network connection. This is the project that my group created, 
+migrated to github from a private GitLab server. The instructions
+did not stipulate how it should be done, or what languages to use,
+so we did it in C, entirely within a terminal window. For fun.
 
-  - ncurses documentation:
-    http://invisible-island.net/ncurses/ncurses-intro.html
-    and
-    http://tldp.org/HOWTO/NCURSES-Programming-HOWTO/
-    
-  - These dependencies can be built using some of the scripts
-    that are included in the 'utils/' directory. The 'ncurses'
-    example has been completed.
+## Building the System
 
-  - For unit testing, maybe we can use something like this:
-    https://libcheck.github.io/check/doc/check_html/check_3.html
+*If you just want to play the game, you can simply downloade the
+latest built release from the repository.*
 
-  - After thinking about it some more, it might be a good idea
-    to use CMake as our build system instead of just a Makefile
-    because it is much more modern and flexible. Thoughts? Our
-    game/project won't be *that* complicated to require it, but
-    in the interest of "hey, let's learn something useful"...
+In order to build this program, you will need a working Docker 
+installation. Build the Docker image by running 
+```
+make image
+```
+and then once the image is compiled (will take a few minutes):
+```
+make game
+```
+will compile and link the code, producing an executable at 
+```
+/CS451_Checkers/bin/game
+```
 
-  - Looks like we've found a bug in Valgrind:
-    https://bugs.kde.org/show_bug.cgi?id=382083
+### Prerequisites
 
-  - Adding some notes from trying to run this again, 3 months later.
-    Install ncurses and xterm.  "sudo apt-get install ncurses-term"
-    would be a good command to remember as well. Then make sure the 
-    TERMINFO environment variable is set to the terminfo database 
-    location (in my case it was /usr/share/terminfo). Then when 
-    running it, run as "TERM=xterm-color ./game". Can't offer any 
-    tips on compiling it, the docker image wouldn't build on my machine,
-    but it worked on my other desktop. I'll update if I figure that one
-    out.
+To compile the project, you should only need Docker, as the code
+is all built entirely in the image provided. 
+
+### Running
+
+To run the executable, you will need *ncurses* installed, which
+can be done on Ubuntu/Debian based systems with the command
+```
+apt-get install ncurses-terminal
+```
+
+Once ncurses is installed, you need to make sure the TERMINFO 
+environment variable is set correctly. To do this, use the command
+```
+locate terminfo
+```
+and look for an entry similar to
+```
+/usr/share/terminfo
+```
+Once you have found it, export it to the variable. So in my case, 
+the command would be
+```
+export TERMINFO="/usr/share/terminfo"
+```
+
+Almost to playing the game!
+Last step is to export the *xterm-color* terminal to the TERM 
+environment variable.
+```
+export TERM=xterm-color
+```
+
+Now you should be able to run the game with a simple
+```
+./game
+```
+
+For now, you should be able to play a local multiplayer game. The
+server address for the network games is hardcoded in, but that may 
+change at a future date. This page will be updated if that happens. 
+
+For troubleshooting help, please contact zach@brennan.tech
+
+## Built With
+
+* [Docker](http://www.https://www.docker.com/) - The system used to build the project
+* [ncurses](https://www.gnu.org/software/ncurses/) - The graphics library used 
+
+## Authors
+
+* **Zach Brennan** - [zachbrennan](https://github.com/zachbrennan)
+* **Z.V.** 
+* **Corwin Belser** 
+* **Kris Horsey** 

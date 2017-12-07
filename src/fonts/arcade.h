@@ -1,0 +1,421 @@
+/*
+* This font was derived from the TTF available at:
+* https://fontmeme.com/fonts/karmatic-arcade-font/
+*/
+
+#ifndef SRC_FONTS_ARCADE
+#define SRC_FONTS_ARCADE
+
+#include <curses.h>                     /* for some colors    */
+
+/*------------------------------------------------------------*/
+
+#define BGND            COLOR_BLACK     /* from ncurses       */
+#define EDGE            COLOR_RED       /* from ncurses       */
+#define FGND            COLOR_WHITE     /* from ncurses       */
+
+/*------------------------------------------------------------*/
+
+ADD_FONT(arcade)
+{
+    { /* A */
+        { BGND, EDGE, FGND },
+        {
+            { O, X, X, X, X, X, X, X, X, O },
+            { X, X, T, T, T, T, T, T, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, O, X, X, X, X },
+        },
+    },
+    { /* B */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, X, X, X, X, X, O },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, X, X, X, X, O },
+        },
+    },
+    { /* C */
+        { BGND, EDGE, FGND },
+        {
+            { O, X, X, X, X, X, X, X, O, O },
+            { X, X, T, T, T, T, T, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, X, X, X, X },
+            { X, T, T, X, X, X, X, X, X, X },
+            { X, T, T, X, X, X, X, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, T, T, T, T, T, X, X, X },
+            { O, X, X, X, X, X, X, X, X, X },
+            { O, O, X, X, X, X, X, X, X, O },
+        },
+    },
+    { /* D */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, X, X, X, O, O, O },
+            { X, T, T, T, T, T, X, X, O, O },
+            { X, T, T, X, X, T, T, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, T, T, X, X, X },
+            { X, T, T, T, T, T, X, X, X, X },
+            { X, X, X, X, X, X, X, X, X, O },
+            { O, X, X, X, X, X, X, X, O, O },
+        },
+    },
+    { /* E */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, X, X, X, X, X, O },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, T, T, X, X, X, X, X, X, X },
+            { X, T, T, X, X, X, X, X, X, X },
+            { X, T, T, T, T, T, T, X, X, O },
+            { X, T, T, X, X, X, X, X, X, O },
+            { X, T, T, X, X, X, X, X, X, O },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, X, X, X, X, X },
+        },
+    },
+    { /* F */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, X, X, X, X, X, O },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, T, T, X, X, X, X, X, X, X },
+            { X, T, T, X, X, X, X, X, X, X },
+            { X, T, T, T, T, T, T, X, X, O },
+            { X, T, T, X, X, X, X, X, X, O },
+            { X, T, T, X, X, X, X, X, X, O },
+            { X, T, T, X, X, O, O, O, O, O },
+            { X, X, X, X, X, O, O, O, O, O },
+            { O, X, X, X, X, O, O, O, O, O },
+        },
+    },
+    { /* G */
+        { BGND, EDGE, FGND },
+        {
+            { O, X, X, X, X, X, X, X, O, O },
+            { X, X, T, T, T, T, T, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, X, X, X, X },
+            { X, T, T, X, X, T, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, T, T, T, T, X, T, X, X },
+            { O, X, X, X, X, X, X, X, X, X },
+            { O, O, X, X, X, X, X, X, X, X },
+        },
+    },
+    { /* H */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, O, X, X, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, O, X, X, X, X },
+        },
+    },
+    { /* I */
+        { BGND, EDGE, FGND },
+        {
+            { O, O, O, X, X, X, X, O, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, X, X, X, X, O, O },
+            { O, O, O, O, X, X, X, X, O, O },
+        },
+    },
+    { /* J */
+        { BGND, EDGE, FGND },
+        {
+            { O, O, O, O, O, X, X, X, X, O },
+            { O, O, O, O, O, X, T, T, X, X },
+            { O, O, O, O, O, X, T, T, X, X },
+            { O, O, O, O, O, X, T, T, X, X },
+            { X, X, X, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, T, T, T, T, T, X, X, X },
+            { O, O, X, X, X, X, X, X, X, X },
+            { O, O, O, X, X, X, X, X, X, O },
+        },
+    },
+    { /* K */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, O, X, X, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, T, T, X, X, X },
+            { X, T, T, X, T, T, X, X, X, X },
+            { X, T, T, T, T, X, X, X, X, O },
+            { X, T, T, X, T, T, X, X, O, O },
+            { X, T, T, X, X, T, T, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, O, X, X, X, X },
+        },
+    },
+    { /* L */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, O, O, O, O, O, O },
+            { X, T, T, X, X, O, O, O, O, O },
+            { X, T, T, X, X, O, O, O, O, O },
+            { X, T, T, X, X, O, O, O, O, O },
+            { X, T, T, X, X, O, O, O, O, O },
+            { X, T, T, X, X, O, O, O, O, O },
+            { X, T, T, X, X, X, X, X, O, O },
+            { X, T, T, T, T, T, T, X, X, O },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, X, X, X, X, X },
+        },
+    },
+    { /* M */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, O, X, X, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, X, T, T, T, X, X },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, T, T, X, T, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, O, X, X, X, X },
+        },
+    },
+    { /* N */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, O, X, X, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, X, X, T, T, X, X },
+            { X, T, T, T, T, X, T, T, X, X },
+            { X, T, T, X, T, T, T, T, X, X },
+            { X, T, T, X, X, T, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, O, X, X, X, X },
+        },
+    },
+    { /* O */
+        { BGND, EDGE, FGND },
+        {
+            { O, X, X, X, X, X, X, X, O, O },
+            { X, X, T, T, T, T, T, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, T, T, T, T, T, X, X, X },
+            { O, X, X, X, X, X, X, X, X, X },
+            { O, O, X, X, X, X, X, X, X, O },
+        },
+    },
+    { /* P */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, X, X, X, X, O, O },
+            { X, T, T, T, T, T, T, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, T, T, T, X, X, X },
+            { X, T, T, X, X, X, X, X, X, X },
+            { X, T, T, X, X, X, X, X, X, O },
+            { X, X, X, X, X, O, O, O, O, O },
+            { O, X, X, X, X, O, O, O, O, O },
+        },
+    },
+    { /* Q */
+        { BGND, EDGE, FGND },
+        {
+            { O, X, X, X, X, X, X, X, O, O },
+            { X, X, T, T, T, T, T, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, T, T, X, X, X },
+            { X, X, T, T, T, T, T, T, X, X },
+            { O, X, X, X, X, X, X, X, X, X },
+            { O, O, X, X, X, X, X, X, X, X },
+        },
+    },
+    { /* R */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, X, X, X, X, O, O },
+            { X, T, T, T, T, T, T, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, T, T, T, X, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, O, X, X, X, X },
+        },
+    },
+    { /* S */
+        { BGND, EDGE, FGND },
+        {
+            { O, X, X, X, X, X, X, X, O, O },
+            { X, X, T, T, T, T, T, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, X, X, X, X },
+            { X, X, T, T, T, T, T, X, X, X },
+            { X, X, X, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, T, T, T, T, T, X, X, X },
+            { O, X, X, X, X, X, X, X, X, X },
+            { O, O, X, X, X, O, X, X, X, O },
+        },
+    },
+    { /* T */
+        { BGND, EDGE, FGND },
+        {
+            { O, X, X, X, X, X, X, X, X, O },
+            { O, X, T, T, T, T, T, T, X, X },
+            { O, X, X, X, T, T, X, X, X, X },
+            { O, O, O, X, T, T, X, X, X, X },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, T, T, X, X, O, O },
+            { O, O, O, X, X, X, X, X, O, O },
+            { O, O, O, O, X, X, X, X, O, O },
+        },
+    },
+    { /* U */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, O, X, X, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, T, T, T, T, T, X, X, X },
+            { O, X, X, X, X, X, X, X, X, X },
+            { O, O, X, X, X, X, X, X, X, O },
+        },
+    },
+    { /* V */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, O, X, X, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, X, T, T, T, X, X },
+            { O, X, X, T, T, T, X, X, X, X },
+            { O, O, X, X, T, X, X, X, X, O },
+            { O, O, O, X, X, X, X, X, O, O },
+            { O, O, O, O, X, X, X, O, O, O },
+        },
+    },
+    { /* W */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, O, X, X, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, X, T, X, T, T, X, X },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, T, T, T, X, T, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, O, X, X, X, X },
+        },
+    },
+    { /* X */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, O, X, X, X, X, O },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, T, T, T, X, T, T, T, X, X },
+            { X, X, T, T, T, T, T, X, X, X },
+            { O, X, X, T, T, T, X, X, X, X },
+            { X, X, T, T, T, T, T, X, X, O },
+            { X, T, T, T, X, T, T, T, X, X },
+            { X, T, T, X, X, X, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, O, X, X, X, X },
+        },
+    },
+    { /* Y */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, X, X, X, X, O, O },
+            { X, T, T, X, X, T, T, X, X, O },
+            { X, T, T, X, X, T, T, X, X, O },
+            { X, T, T, X, X, T, T, X, X, O },
+            { X, X, T, T, T, T, X, X, X, O },
+            { O, X, X, T, T, X, X, X, X, O },
+            { O, O, X, T, T, X, X, X, O, O },
+            { O, O, X, T, T, X, X, O, O, O },
+            { O, O, X, X, X, X, X, O, O, O },
+            { O, O, O, X, X, X, X, O, O, O },
+        },
+    },
+    { /* Z */
+        { BGND, EDGE, FGND },
+        {
+            { X, X, X, X, X, X, X, X, X, O },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, X, X, X, X, T, T, T, X, X },
+            { O, O, X, X, T, T, T, X, X, X },
+            { O, X, X, T, T, T, X, X, X, X },
+            { X, X, T, T, T, X, X, X, X, O },
+            { X, T, T, T, X, X, X, X, X, O },
+            { X, T, T, T, T, T, T, T, X, X },
+            { X, X, X, X, X, X, X, X, X, X },
+            { O, X, X, X, X, X, X, X, X, X },
+        },
+    },
+};
+
+/*------------------------------------------------------------*/
+
+#undef BGND
+#undef EDGE
+#undef FGND
+
+/*------------------------------------------------------------*/
+
+#endif /* SRC_FONTS_ARCADE */

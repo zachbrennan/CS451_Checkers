@@ -1,0 +1,533 @@
+%---------------------------------------------------------------
+% File information.
+
+% Filename : docs/test_cases.tex
+% Purpose  : Multiplayer, networked Checkers game for CS451.
+% Authors  : Corwin Belser <cmb539@drexel.edu>
+%            Zach Brennan  < zab37@drexel.edu>
+%            Kris Horsey   < kth37@drexel.edu>
+%            Zach van Rijn < zwv23@drexel.edu>
+% License  : MIT/X (excl. ext. libs; see respective licenses).
+% Revision : 20170813
+
+%---------------------------------------------------------------
+% README.
+
+% This is currently a DRAFT.
+%
+% Also please keep it to NO MORE THAN 64 columns. This isn't a
+% requirement by LaTeX, but a guideline we are following for the
+% entire project. Thanks.
+%
+% You will need some kind of LaTeX compiler. Recommend this:
+% https://www.tug.org/texlive/acquire-netinstall.html
+% which works on Windows and Linux.
+%
+% The `vhistory' package has nice documentation:
+% http://mirrors.rit.edu\
+% /CTAN/macros/latex/contrib/vhistory/doc/vh_sets_en.pdf
+%
+% And this page on making tables:
+% https://en.wikibooks.org/wiki/LaTeX/Tables
+
+%---------------------------------------------------------------
+% Includes.
+
+\documentclass[letterpaper]{article}
+
+\usepackage[english]{babel}
+\usepackage{multirow}					% For tables
+\usepackage{bookmark}                   % tracks .out files
+\usepackage{cleveref}                   % \cref
+\usepackage[usenames,dvipsnames]{color} % for colors
+\usepackage{courier}                    % \ttfamily
+\usepackage[useregional]{datetime2}
+\usepackage{hyperref}                   % \url
+\usepackage{listings}                   % \lstlisting, \lstset
+\usepackage[numbers, square]{natbib}    % for proper \bibsection
+\usepackage{tabu}                       % flexible tables
+\usepackage{tabulary}                   % \tabulary (more flex.)
+\usepackage{vhistory}                   % for version history
+
+%---------------------------------------------------------------
+% Configuration.
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\title{
+    Console-Based Checkers Game\\
+    Software Test Case Specifications
+    \footnote{CS451:002 Group 2, Drexel University}
+}
+
+% \usepackage{authblk} causes problems with alignment, though it
+% also allows us to properly include affiliations.. pick poison.
+\author{
+    Belser, C.\\
+    \texttt{cmb923@drexel.edu}
+    \and
+    Brennan, Z.\\
+    \texttt{zab37@drexel.edu}
+    \and
+    Horsey, K.\\
+    \texttt{kth37@drexel.edu}
+    \and
+    van Rijn, Z.\\
+    \texttt{zwv23@drexel.edu}
+}
+
+\date{\today}
+
+%---------------------------------------------------------------
+% Document begin.
+
+\begin{document}
+
+%---------------------------------------------------------------
+% Header.
+
+\maketitle
+
+\begin{abstract}
+
+This document is intended to be used in conjunction with the
+provided \texttt{requirements.pdf} and \texttt{design.pdf}
+documents. \textbf{Note:} this document is \emph{Proprietary
+and Confidential}; duplication or reproduction of any content
+herein must be explicitly granted in writing.
+
+\end{abstract}
+
+%---------------------------------------------------------------
+% Table of Contents.
+
+\tableofcontents
+\newpage
+
+%---------------------------------------------------------------
+% Revision History.
+
+\begin{versionhistory}
+    \vhEntry{0.90}
+        {\date{\DTMdisplaydate{2017}{08}{14}{-1}}}
+        {KH}
+        {created initial \LaTeX~version}
+    \vhEntry{0.91}
+        {\date{\DTMdisplaydate{2017}{08}{19}{-1}}}
+        {ZV}
+        {remove all unused code}
+    \vhEntry{0.92}
+        {\date{\DTMdisplaydate{2017}{08}{19}{-1}}}
+        {ZB}
+        {Added game start test cases}    
+    \vhEntry{0.93}
+        {\date{\DTMdisplaydate{2017}{08}{20}{-1}}}
+        {CB}
+        {Added user interface test cases}
+     \vhEntry{1.00}
+        {\date{\DTMdisplaydate{2017}{08}{20}{-1}}}
+        {All}
+        {completed documentation}   
+\end{versionhistory}
+\newpage
+
+%---------------------------------------------------------------
+% Introduction.
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{Purpose of Document}
+\label{sec:intro_outline}
+
+This document is to describe the various tests performed on the
+Console-Based Checkers Game. This game is designed to be played
+by two people on separate computers, connected to each other
+over a network.
+
+\subsection{Definitions, Acronyms, Abbreviations}
+\label{sec:intro_definitions}
+
+\begin{enumerate}
+	\item \emph{Tux} - Linux-based servers available to all Computer
+    	  Science students at Drexel University.
+          
+    \item \emph{Boardstate} - The data structure that contains
+          the current state of the board, and the locations of
+          each piece
+    
+    \item \emph{Board} - Refers to the visual representation of
+          the \emph{BoardState}
+           
+    \item \emph{Game} - A capitalized \textbf{Game} shall be
+          used in place of the full name of Console-Based
+          Checkers, where appropriate
+\end{enumerate}
+
+\subsection{References}
+\label{sec:intro_references}
+This document may feature terms and references which can be
+found in the Requirements and Design documents that are
+associated with the Console-Based Checkers Game project.
+
+%---------------------------------------------------------------
+% Testing Environments.
+
+\section{Testing Environments}
+\label{sec:environment}
+
+Console-Based Checkers and it's associated software and test 
+cases have been run and tested within the following environments.
+
+\subsection{E1: Docker (Corwin Belser)}
+\label{sec:environment_corwin}
+
+\begin{figure}
+\centering
+\begin{tabulary}{\linewidth}{LLL}
+    Component & Value         & Unit     \\
+    \hline
+    OS     	  & Linux Mint 18.1 & Serena      \\
+    RAM       & 12              & GB       \\
+    HDD       & 949      	    & GB       \\
+    Docker    & 17.06.0-ce    & (native) \\
+\end{tabulary}
+\caption{System Spec. Corwin Belser}
+\label{fig:environment_corwin}
+\end{figure}
+
+\emph{See \cref{fig:environment_corwin}}.
+
+\subsection{E2: Docker (Kris Horsey)}
+\label{sec:environment_kris}
+\emph{See \cref{fig:environment_kris}}.
+
+\begin{figure}
+\centering
+\begin{tabulary}{\linewidth}{LLL}
+    Component & Value         & Unit     \\
+    \hline
+    OS     	  & Windows 10 Home & 1607      \\
+    RAM       & 8               & GB       \\
+    HDD       & 237        	    & GB       \\
+    Docker    & 5.1.24          & r117012 \\
+\end{tabulary}
+\caption{System Spec. Kris Horsey}
+\label{fig:environment_kris}
+\end{figure}
+
+\subsection{E3: Docker (Zach Brennan)}
+\label{sec:environment_zachb}
+
+\emph{See \cref{fig:environment_zachb}}.
+
+\begin{figure}
+\centering
+\begin{tabulary}{\linewidth}{LLL}
+    Component & Value         & Unit     \\
+    \hline
+    OS     	  & Ubuntu 16.04  & LTS      \\
+    RAM       & 8             & GB       \\
+    HDD       & 243.5      	  & GB       \\
+    Docker    & 1.12.6        & (native) \\
+\end{tabulary}
+\caption{System Spec. Zach Brennan}
+\label{fig:environment_zachb}
+\end{figure}
+
+\subsection{E4: Docker (Zach van Rijn)}
+\label{sec:environment_zachv}
+
+\emph{See \cref{fig:environment_zachv}}.
+
+\begin{figure}
+\centering
+\begin{tabulary}{\linewidth}{LLL}
+    Component & Value       & Unit     \\
+    \hline
+    OS     	  & CentOS 7   & 20170322  \\
+    RAM       & 64         & GB        \\
+    HDD       & 40         & GB        \\
+    Docker    & 17.06.0-ce & r02c1d87  \\
+\end{tabulary}
+\caption{System Spec. Zach van Rijn}
+\label{fig:environment_zachv}
+\end{figure}
+
+\subsection{E5: Jenkins-enabled Build Platform}
+\label{sec:environment_jenkins}
+
+\emph{See \cref{fig:environment_zachv}}.
+
+\subsection{E6: Drexel University (\texttt{tux.cs}) Platform}
+\label{sec:environment_drexel}
+
+\emph{Docker is not installed, but Console-Based Checkers is built with static binaries, and therefore can be copied to Tux to be executed. The known specifications for Tux can be found in \cref{fig:environment_drex}}
+
+\begin{figure}
+\centering
+\begin{tabulary}{\linewidth}{LLL}
+    Component & Value        & Unit      \\
+    \hline
+    OS     	  & Ubuntu 16.04 & (unknown) \\
+    RAM       & 64           & GB        \\
+    HDD       & (varies)     & GB        \\
+    Docker    & n/a          & n/a       \\
+\end{tabulary}
+\caption{System Spec. Drexel's \texttt{tux.cs} System}
+\label{fig:environment_drex}
+\end{figure}
+
+%---------------------------------------------------------------
+% Setup Information and Prerequisites
+
+\section{Setup Information and Prerequisites}
+\label{sec:setup}
+
+Before the program is run the following prerequisites must be met.
+
+\begin{itemize}
+    \item Make sure your computer is connected to the Internet.
+    \item Have Docker installed and properly configured.
+    \item Followed all the instructions in the Requirements
+    	  documentation to initiate the game.
+    %Add more things as you think of them. 
+\end{itemize}
+
+%---------------------------------------------------------------
+% Issue Tracking 
+
+\section{Issue Tracking }
+\label{sec:issue}
+
+We will be using the following URL for issue tracking:\\
+\url{https://git.zv.io/me/CS451-Checkers/issues}
+
+%---------------------------------------------------------------
+% Test Cases
+
+\newpage
+
+\section{Test Cases}
+\label{sec:test}
+
+This document outlines all of the testing that will be performed
+on Console-Based Checkers, and the expected results of those tests,
+to ensure that it will retain all functionality that was outlined
+in the Requirements documentation.
+
+\subsection{Test Case 1: Start Game}
+\label{sec:test_start}
+
+\subsubsection{Description}
+\label{sec:test_start_des}
+This case consists of the different components needed for a user to host or join a 
+game of Checkers.
+
+\subsubsection{Preconditions}
+\label{sec:test_start_precon}
+The user has Docker installed on their computer and an Internet connection.
+
+\subsubsection{Scenario}
+\label{sec:test_start_scenario}
+
+\begin{tabular}{ |l|p{5cm}|p{4cm}|l| } 
+\hline
+\multicolumn{4}{ |c| }{Test Case} \\
+\hline 
+ Description &  Execution Steps  & Expected Result & Actual Result \\ \hline
+ 
+Launch Server  	& Run the Server application inside of Docker, with the command outlined in the Requirements Document Section 4.2.1 & The Server runs, and begins listening for connections on the specified port &  \\ \hline
+
+Launch Game  	& Run the Client application inside of Docker, with the port to attempt connection as the argument & The Client runs, and connects to the Server that is listening on the specified port, receiving an ID &  \\ \hline
+
+Join Game - Success	& Be the first or second Client to connect to the Server & Receive an ID from the Server of either 1 or 2, indicating that the Client is recognized as a player &  \\ \hline
+
+Join Game - Failure & Be the first or second Client to connect to the Server & The Client can not connect to the Server on the specified port, and informs the user of the error &  \\ \hline
+
+Watch Game - Success & Connect to a Server that already has at least 2 Clients connected & Receive an ID from the Server that is greater than 2, indicating that the Client is recognized as a spectator &  \\ \hline
+
+Watch Game - Failure & Connect to a Server that already has at least 2 Clients connected & The Client can not connect to the Server, or has the connection closed by the Server if the Spectator Queue is full. The user is then informed of this error &  \\ \hline
+
+%  &  &  &  \\ \hline
+\end{tabular}
+
+\subsection{Test Case 2: Play Game}
+\label{sec:test_play}
+
+\subsubsection{Description}
+\label{sec:test_play_des}
+This case describes all of the moves and potential states that can occur in a 
+game of Checkers.
+
+\subsubsection{Preconditions}
+\label{sec:test_play_precon}
+The user has successfully connected to a Server, and has an ID of either 1 or
+2, indicating that it is one of the active players, and not a spectator.
+
+\subsubsection{Scenario}
+\label{sec:test_play_scenario}
+\begin{tabular}{ |l|p{4cm}|p{4cm}|l| }
+\hline
+\multicolumn{4}{ |c| }{Test Case} \\
+\hline
+
+% Tests aren't really color-dependent I don't think, but I left the old version in case we want to change it back.
+ Description & Execution Steps & Expected Result & Actual Result \\ \hline
+Piece Move & Select a piece and an open board location  & The piece moves to a new location &  \\ \hline
+Piece Invalid Move & Make an illegal move & The Server rejects the move,a warning is displayed, and it remains the same players turn & \\ \hline
+Piece Jump & Select a piece and pick an open board location beyond an opposing piece  & The opposing piece is removed and jumping piece relocates  &  \\ \hline
+Piece Crowning & Move the piece to the last row on the board & The crowned piece becomes a king & \\ \hline
+King Move  & Select a crowned piece and an open board location & The crowned piece moves to a new location &  \\ \hline
+King Invalid Move  & Make an illegal move with a crowned piece & The server rejects the move,a warning is displayed, and it remains the same players turn &  \\ \hline
+King Jump  & Select a crowned piece and pick an open board location beyond an opposing piece  & The opposing piece is removed and jumping piece relocates &  \\ \hline
+
+
+% White Piece Move & Select a piece and an open board location  & The piece moves to a new location &  \\ \hline
+% White Piece Jump & Select a piece and pick an open board location beyond an opposing piece  & The opposing piece is removed and jumping piece relocates  &  \\ \hline
+% White Piece Crowning & Move the piece to the last row on the board & The crowned piece becomes a king & \\ \hline
+% White Piece Invalid Move & Make an illegal move & The Server rejects the move,a warning is displayed, and it remains the same players turn & \\ \hline
+% White King Move  & Select a piece and an open board location & The piece moves to a new location &  \\ \hline
+% White King Jump  & Select a piece and pick an open board location beyond an opposing piece  & The opposing piece is removed and jumping piece relocates &  \\ \hline
+% White King Invalid Move  & Make an illegal move & The Server rejects the move,a warning is displayed, and it remains the same players turn &  \\ \hline
+% Red Piece Move  & Select a piece and an open board location & The piece moves to a new location &  \\ \hline
+% Red Piece Jump  & Select a piece and pick an open board location beyond an opposing piece  & The opposing piece is removed and jumping piece relocates &  \\ \hline
+% Red Piece Crowning & Move the piece to the first row on the board & The crowned piece becomes a king & \\ \hline
+% Red Piece Invalid Move & Make an illegal move & a warning is displayed & \\ \hline
+% Red King Move  & Select a piece and an open board location & The piece moves to a new location &  \\ \hline
+% Red King Jump  & Select a piece and pick an open board location beyond an opposing piece   & The opposing piece is removed and jumping piece relocates &  \\ \hline
+% Red King Invalid Move  & Make an illegal move &  a warning is displayed &  \\ \hline
+\end{tabular}
+
+\subsection{Test Case 3: End Game}
+\label{sec:test_end}
+
+\subsubsection{Description}
+\label{sec:test_end_des}
+This case describes all the ways a game of Console-Based Checkers can be terminated.
+
+\subsubsection{Preconditions}
+\label{sec:test_end_precon}
+The user is currently in an active game instance of Console-Based Checkers.
+
+\subsubsection{Scenario}
+\label{sec:test_end_scenario}
+\begin{tabular}{ |l|p{5cm}|p{4cm}|l| }
+\hline
+\multicolumn{4}{ |c| }{Test Case} \\
+\hline
+ Description & Execution Steps & Expected Result & Actual Result \\ \hline
+Win Game - Capture & 
+ You capture your opponent's last piece
+ & The client will ask if the user wants to disconnect or play again. 
+ "You Win" message displayed. &  \\ \hline
+ 
+Win Game - No Moves & 
+ You create a situation in which your opponent has no valid moves to make
+ & The client will ask if the user wants to disconnect or play again. 
+ "You Win" message displayed. &  \\ \hline
+ 
+Lose Game - Capture & 
+ Your opponent captures your last piece \newline
+ & The client will ask if the user wants to disconnect or play again. 
+ "You Lose" message displayed. &  \\ \hline
+ 
+Lose Game - No Moves & 
+ Your opponent creates a situation in which you have no valid moves to make
+ & The client will ask if the user wants to disconnect or play again. 
+ "You Lose" message displayed. &  \\ \hline
+ 
+Game Times Out 
+& The user does nothing for 5 mins and lets the game's timer run out.
+& The other user gets a notification that their opponent disconnected &
+\\ \hline User gets Disconnected & This occurs when a user gets removed
+from the game before a time out & The other user gets a notification
+that their opponent disconnected &  \\ \hline
+
+%%Draw &   &  &  \\ \hline
+\end{tabular}
+
+
+
+\subsection{Test Case 4: User Interface}
+\label{sec:test_display}
+
+\subsubsection{Description}
+\label{sec:test_display_des}
+This case describes the various user interface functionality.
+
+\subsubsection{Preconditions}
+\label{sec:test_display_precon}
+The client is successfully receiving board states and move requests from the server.
+
+\subsubsection{Scenario}
+\label{sec:test_display_scenario}
+\begin{tabular}{ |l|p{5cm}|p{4cm}|l| }
+\hline
+\multicolumn{4}{ |c| }{Test Case} \\
+\hline
+ Description & Execution Steps & Expected Result & Actual Result \\ \hline
+Board Display & Client receives board state from server &
+	1. Checker board is rendered to the screen \newline
+    2. Checker pieces are rendered in their respective locations & \\ \hline
+Move Highlighting & Client generates list of possible moves to be selected by player,
+	passing them to the user interface component & Pieces available to be moved have
+    a highlight rendered around them & \\ \hline
+Move Selection & Client renders the highlighting on available moves &
+	1. The first piece is rendered with a blinking highlight \newline
+    2. Pressing the left or right arrow key moves the blinking highlight in the
+    	respective direction. \newline
+    3. Pressing the enter key changes the highlight color off the selected piece \&
+    	removes the highlight from all other pieces. The possible destinations for
+        the selected piece are then highlighted as in step 1. & \\ \hline
+Passive Message Display & Client receives a passive message from the server &
+	Passive message is rendered to the top of the terminal, overwriting any
+    	previous message \& remaining until overwritten  & \\ \hline
+Active Message Display & Client receives an active message from the server &
+    Active message is rendered in the center of the screen over top of the
+    	checkers board. Pressing the enter key removes this message. & \\ \hline
+
+
+%%Draw &   &  &  \\ \hline
+\end{tabular}
+
+%---------------------------------------------------------------
+% Glossary.
+
+\newpage
+
+\section{Glossary}
+\label{sec:glossary}
+
+Below is a comprehensive list of some of the terms and language
+that we use within this document, knowledge of which will lead
+to a more effective understanding of our product's design and
+aid in future communications regarding our product.
+
+\begin{itemize}
+    \item \textbf{Checkerboard} NxN (typically 8x8) game board
+          composed of alternating black/red (or other) squares
+          on which game pieces \emph{Checkers} reside
+    \item \textbf{Piece} Standard Checkers disc with limited
+          movement, specifically only forward-diagonal motion
+    \item \textbf{King} Checkers piece that can move along any
+          diagonals, forward or backward
+    \item \textbf{Move} The act of changing the location of a
+          piece on the board when it is that player's turn
+    \item \textbf{Jump} The act of removing an opposing player's
+          piece from the board, occurring in a straight diagonal
+          fashion -- e.g., "hopping over" the opponent
+    \item \textbf{Crowning} The act of changing a standard
+          game \emph{Piece} to a \emph{King}
+    \item \textbf{Active Message} A message that interrupts gameplay,
+    	  and is placed in the center of the board, requiring 
+          interaction from the player to clear it and allow play
+          to resume
+    \item \textbf{Passive Message} A message that does not interrupt
+    	  gameplay, and is displayed above the board
+\end{itemize}
+
+%---------------------------------------------------------------
+% Document end.
+
+\end{document}

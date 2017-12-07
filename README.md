@@ -10,7 +10,7 @@ so we did it in C, entirely within a terminal window. For fun.
 
 ## Building the System
 
-*If you just want to play the game, you can simply downloade the
+*If you just want to play the game, you can simply download the
 latest built release from the repository.*
 
 In order to build this program, you will need a working Docker 

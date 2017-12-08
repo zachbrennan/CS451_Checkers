@@ -189,7 +189,9 @@ main(void)
 		switch(choice)
         {
 			case 0:
-				single_player_game();
+    		    clear();
+                refresh();
+	        	single_player_game();
 			break;
 			case 1:
                 clear();
